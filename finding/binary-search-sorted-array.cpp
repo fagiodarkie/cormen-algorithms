@@ -4,15 +4,6 @@
 #include <algorithm>
 #include <sstream>
 
-void swap (std::vector<int>::iterator a, std::vector<int>::iterator b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-const int K = 4;
-
 std::string str(std::vector<int> input)
 {
     std::stringstream ss;
@@ -22,6 +13,8 @@ std::string str(std::vector<int> input)
 
 int find(int item, const std::vector<int>& v, int begin, int end)
 {
+    if (begin == end) return -1;
+    
     if (begin + 1 == end)
     {
         return v[begin] == item ? begin : -1;
