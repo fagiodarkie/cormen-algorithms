@@ -29,12 +29,14 @@ void insertionSort(vec& in)
     in.swap(result);
 }
 
+int bucketNumber(int value) { return value / 10; }
+
 void bucketSort(vec& v) {
     std::vector<vec> buckets(10);
     vec res;
 
     for (auto i: v)
-        buckets[i / 10].emplace_back(i);
+        buckets[bucketNumber(i)].emplace_back(i);
 
     for (auto& vs: buckets)
     {
